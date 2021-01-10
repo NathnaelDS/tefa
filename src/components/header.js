@@ -21,7 +21,9 @@ function Header({ name, Icon, color }) {
         <div className="mt-1 text-xs font-bold uppercase">{name}</div>
       </div>
       <div className="p-1 bg-white rounded-full shadow-lg cursor-pointer">
-        <Info />
+        <a href="#basicInfo">
+          <Info />
+        </a>
       </div>
     </div>
   );

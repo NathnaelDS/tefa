@@ -3,7 +3,7 @@ import BasicInfoIcon from "./icons/basicInfoIcon";
 
 function BasicInfo({ data, ...props }) {
   return (
-    <div className={props.className}>
+    <div id="basicInfo" className={props.className}>
       <div className="flex flex-col items-center mx-auto">
         <BasicInfoIcon />
         <div className="text-xs font-bold text-green-900 uppercase">
