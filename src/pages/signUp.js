@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { captureFormData } from "../utils/captureFormData";
+// import { captureFormData } from "../utils/captureFormData";
 
 function SignUp(props) {
   const [verifyStep, setVerifyStep] = useState(false);
@@ -14,7 +14,7 @@ function SignUp(props) {
             event.preventDefault();
 
             // todo: Check verification code and login if correct
-            const formData = captureFormData(event);
+            // const formData = captureFormData(event);
 
             setVerifyStep(false);
           }}
@@ -46,7 +46,7 @@ function SignUp(props) {
           onSubmit={(event) => {
             event.preventDefault();
 
-            const formData = captureFormData(event);
+            // const formData = captureFormData(event);
             // todo: send the name, phoneNumber to back-end
 
             setVerifyStep(true);

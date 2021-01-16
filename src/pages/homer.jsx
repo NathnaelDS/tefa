@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
-import MenuItem from "../components/menuItem";
+import React, { useState, useEffect } from "react";
 import AmbulanceIcon from "../components/icons/ambulanceIcon";
 import FireIcon from "../components/icons/fireIcon";
 import PoliceIcon from "../components/icons/policeIcon";

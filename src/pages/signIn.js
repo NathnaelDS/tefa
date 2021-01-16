@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { captureFormData } from "../utils/captureFormData";
+// import { captureFormData } from "../utils/captureFormData";
 
 function SignIn(props) {
   const [verifyStep, setVerifyStep] = useState(false);
@@ -46,7 +46,7 @@ function SignIn(props) {
             event.preventDefault();
 
             // todo: Send verification code to phone number
-            const formData = captureFormData(event);
+            // const formData = captureFormData(event);
 
             setVerifyStep(true);
           }}

@@ -58,7 +58,7 @@ function ReportCardResponder({ openReport }) {
         {/* Third Row */}
         <div className="flex items-center pb-8">
           <div className="mr-6" style={{ width: 24, height: 24 }}>
-            {/* <ListResponder /> */}
+            <ListResponder />
             <UserResponder />
           </div>
           <div className="">

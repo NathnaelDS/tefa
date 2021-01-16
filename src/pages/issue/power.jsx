@@ -22,7 +22,6 @@ function Power() {
   const [type, setType] = useState(undefined);
   const [severity, setSeverity] = useState(undefined);
   const [automaticLocation, setAutomaticLocation] = useState(false);
-  const [autoLocationData, setAutoLocationData] = useState(undefined);
   const [incompleteFields, setIncompleteFields] = useState([]);
 
   function geoFindMe() {

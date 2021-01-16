@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Fire from "./pages/issue/fire";
 import Power from "./pages/issue/power";
@@ -16,29 +16,6 @@ function App() {
   return (
     <Router>
       <div className="text-gray-900">
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/power">Power</Link>
-          </li>
-          <li>
-            <Link to="/fire">Fire</Link>
-          </li>
-          <li>
-            <Link to="/ambulance">Ambulance</Link>
-          </li>
-          <li>
-            <Link to="/water">Water</Link>
-          </li>
-          <li>
-            <Link to="/police">Police</Link>
-          </li>
-        </ul> */}
-
-        <hr />
-
         <Switch>
           <Route exact path="/signupr">
             <SignUpResponder />
