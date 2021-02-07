@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import PoliceIcon from "../../components/icons/policeIcon";
+import PoliceIcon from "../../assets/icons/policeOutline.svg";
 import BasicInfo from "../../components/basicInfo";
 
 const data = {
@@ -16,7 +16,7 @@ const data = {
 function Police() {
   return (
     <div>
-      <Header name="Police" Icon={PoliceIcon} color="bg-blue-100" />
+      <Header name="Police" icon={PoliceIcon} color="bg-blue-100" />
       <hr />
       <BasicInfo data={data} className="p-10 bg-blue-300" />
     </div>

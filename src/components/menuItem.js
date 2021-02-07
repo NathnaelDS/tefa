@@ -1,17 +1,20 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function MenuItem({ link, Icon, name }) {
-  const history = useHistory();
-
+function MenuItem({ link, icon, name, description }) {
   return (
-    <div
-      className="flex flex-col items-center w-20 mx-1 my-6 border border-green-100 rounded shadow-sm cursor-pointer hover:shadow-md sm:w-24 sm:m-6"
-      onClick={() => history.push(link)}
+    <Link
+      className="flex justify-between w-full mx-1 my-6 duration-150 ease-out border border-teal-400 rounded shadow-sm cursor-pointer hover:shadow-lg"
+      to={link}
     >
-      <Icon width={40} height={40} />
-      <div className="text-xs font-bold text-gray-800 sm:text-base">{name}</div>
-    </div>
+      <div className="px-6 py-4">
+        <div className="mb-1 font-bold text-gray-800 uppercase sm:text-base">
+          {name}
+        </div>
+        <div className="text-sm text-gray-800 sm:text-base">{description}</div>
+      </div>
+      <img src={icon} alt="" className="pr-6" />
+    </Link>
   );
 }
 

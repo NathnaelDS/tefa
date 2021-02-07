@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header";
 import BasicInfo from "../../components/basicInfo";
-import PowerIcon from "../../components/icons/powerIcon";
+import PowerIcon from "../../assets/icons/powerOutline.svg";
 import SeverityIcon from "../../components/icons/severityIcon";
 import TypeIcon from "../../components/icons/typeIcon";
 import SendIcon from "../../components/icons/sendIcon";
@@ -103,7 +103,7 @@ function Power() {
 
   return (
     <div>
-      <Header name={"Power"} Icon={PowerIcon} color="bg-purple-100" />
+      <Header name={"Power"} icon={PowerIcon} color="bg-purple-100" />
       <hr />
 
       <form onSubmit={submitForm}>
@@ -118,7 +118,16 @@ function Power() {
             {/* Automatic/Manual Location Switch */}
             <div className="flex items-center mb-4">
               <div className="pr-6">Find Location Automatically</div>
-              {automaticLocation ? (
+              <label className="switch">
+                <input
+                  id="automaticLocation"
+                  className="sliderCheckbox"
+                  type="checkbox"
+                  onChange={() => setAutomaticLocation(!automaticLocation)}
+                />
+                <span className="slider" />
+              </label>
+              {/* {automaticLocation ? (
                 <button
                   type="button"
                   className="px-3 py-2 bg-teal-200 rounded"
@@ -134,7 +143,7 @@ function Power() {
                 >
                   OFF
                 </button>
-              )}
+              )} */}
             </div>
 
             {automaticLocation ? (

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import WaterIcon from "../../components/icons/waterIcon";
+import WaterIcon from "../../assets/icons/waterOutline.svg";
 import BasicInfo from "../../components/basicInfo";
 
 const data = {
@@ -16,7 +16,7 @@ const data = {
 function Water() {
   return (
     <div>
-      <Header name={"Water"} Icon={WaterIcon} color="bg-teal-100" />
+      <Header name={"Water"} icon={WaterIcon} color="bg-teal-100" />
       <hr />
       <BasicInfo data={data} className="p-10 bg-teal-300" />
     </div>

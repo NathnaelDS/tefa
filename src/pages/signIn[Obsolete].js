@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 // import { captureFormData } from "../utils/captureFormData";
 
-function SignUp(props) {
+function SignIn(props) {
   const [verifyStep, setVerifyStep] = useState(false);
 
   return (
@@ -11,10 +12,8 @@ function SignUp(props) {
         <form
           key="verificationForm"
           onSubmit={(event) => {
-            event.preventDefault();
-
             // todo: Check verification code and login if correct
-            // const formData = captureFormData(event);
+            event.preventDefault();
 
             setVerifyStep(false);
           }}
@@ -42,12 +41,12 @@ function SignUp(props) {
         </form>
       ) : (
         <form
-          key="signupForm"
+          key="signinForm"
           onSubmit={(event) => {
             event.preventDefault();
 
+            // todo: Send verification code to phone number
             // const formData = captureFormData(event);
-            // todo: send the name, phoneNumber to back-end
 
             setVerifyStep(true);
           }}
@@ -56,18 +55,11 @@ function SignUp(props) {
             <div className="mb-6 font-serif text-6xl font-bold text-center">
               T
             </div>
-            <label htmlFor="fullName">Name</label>
-            <input
-              id="fullName"
-              type="text"
-              required
-              className="w-64 p-1 mt-3 border-b-2"
-            />
-            <label className="mt-6" htmlFor="phoneNumber">
+            <label className="mt-6" htmlFor="number">
               Phone Number
             </label>
             <input
-              id="phoneNumber"
+              id="number"
               type="tel"
               // pattern="[0-9]{4}-[0-9]{2}-[0-9]{3}"
               required
@@ -78,12 +70,12 @@ function SignUp(props) {
               className="w-24 p-2 mt-8 text-white bg-green-900 border rounded focus:shadow-outline"
               style={{ justifySelf: "center" }}
             >
-              Sign Up
+              Sign In
             </button>
             <div className="pb-12 mt-10">
-              Already have an account?{" "}
-              <Link className="text-blue-500" to="/signin">
-                Sign In
+              Don't have an account?{" "}
+              <Link className="text-blue-500" to="/signup">
+                Sign Up
               </Link>
             </div>
           </div>
@@ -93,4 +85,4 @@ function SignUp(props) {
   );
 }
 
-export default SignUp;
+export default SignIn;

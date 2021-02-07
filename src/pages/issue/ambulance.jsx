@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import AmbulanceIcon from "../../components/icons/ambulanceIcon";
+import AmbulanceIcon from "../../assets/icons/ambulanceOutline.svg";
 import BasicInfo from "../../components/basicInfo";
 
 const data = {
@@ -16,7 +16,7 @@ const data = {
 function Ambulance() {
   return (
     <div>
-      <Header name={"Ambulance"} Icon={AmbulanceIcon} color="bg-red-100" />
+      <Header name={"Ambulance"} icon={AmbulanceIcon} color="bg-red-100" />
       <hr />
       <BasicInfo data={data} className="p-10 bg-red-300" />
     </div>
