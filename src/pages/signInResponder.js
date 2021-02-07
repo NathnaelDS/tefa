@@ -30,6 +30,7 @@ function SignInResponder(props) {
     <div className="grid items-center h-screen">
       <form onSubmit={handleSubmit} className="grid justify-center">
         <div className="mb-6 font-serif text-6xl font-bold text-center">T</div>
+        <div className="text-red-800">Error: {error}</div>
         <label htmlFor="email">Email</label>
         <input
           id="email"

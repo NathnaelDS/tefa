@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { captureFormData } from "../utils/captureFormData";
 
 function SignIn(props) {
   const [verifyStep, setVerifyStep] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { onSignInSubmit, confirm, currentUser } = useAuth();
+  const { onSignInSubmit, confirm } = useAuth();
   const history = useHistory();
 
   return (

@@ -9,14 +9,13 @@ function SignUpResponder(props) {
   // const [verifyStep, setVerifyStep] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { signup, currentUser } = useAuth();
+  const { signup } = useAuth();
   const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = captureFormData(event);
-    console.log(formData);
 
     if (formData.password !== formData.passwordConfirm) {
       return setError("Passwords do not match");
@@ -62,6 +61,7 @@ function SignUpResponder(props) {
         {/* <div>currentUser: {currentUser.email}</div> */}
         <div className="mb-6 font-serif text-6xl font-bold text-center">T</div>
         <form className="grid justify-center" onSubmit={handleSubmit}>
+          <div className="text-red-800">Error: {error}</div>
           <label className="mb-4 text-teal-800">
             Email
             <input

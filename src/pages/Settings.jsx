@@ -4,8 +4,6 @@ import { captureFormData } from "../utils/captureFormData";
 
 export default function Settings() {
   const [location, setLocation] = useState(undefined);
-  const [type, setType] = useState(undefined);
-  const [severity, setSeverity] = useState(undefined);
   const [automaticLocation, setAutomaticLocation] = useState(false);
   const [incompleteFields, setIncompleteFields] = useState([]);
 
@@ -68,8 +66,6 @@ export default function Settings() {
 
     const formData = {
       location: automaticLocation ? location : formLocationData,
-      type: type,
-      severity: severity,
     };
 
     console.log(formData);
