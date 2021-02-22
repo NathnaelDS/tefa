@@ -46,7 +46,7 @@ function UpdateProfileResponder(props) {
     <div className="grid items-center h-screen">
       <form onSubmit={handleSubmit} className="grid justify-center">
         <div className="mb-6 font-serif text-6xl font-bold text-center">T</div>
-        <h2 className="text-center mb-4">Password Reset</h2>
+        <h2 className="mb-4 text-center">Password Reset</h2>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -71,7 +71,7 @@ function UpdateProfileResponder(props) {
         <button
           disabled={loading}
           type="submit"
-          className="w-24 p-2 mt-8 text-white bg-green-900 border rounded focus:shadow-outline"
+          className="w-24 p-2 mt-8 text-white bg-green-900 border rounded focus:ring"
           style={{ justifySelf: "center" }}
         >
           Reset Password

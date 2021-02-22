@@ -24,7 +24,7 @@ export default function Header1({ title }) {
   }, [menuRef]);
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative z-10 flex items-center">
       {/* Open/Close Menu Button */}
       <div className="flex">
         {openMenu ? (
@@ -51,7 +51,7 @@ export default function Header1({ title }) {
         <div
           ref={menuRef}
           className={
-            "absolute top-0 left-0 w-screen h-screen py-4 px-12 bg-teal-100 rounded rounded-l-none shadow-md sm:shadow-lg md:w-1/3 sm:w-1/2"
+            "absolute top-0 left-0 w-screen h-screen py-4 px-12 bg-green-100 rounded rounded-l-none shadow-md sm:shadow-lg md:w-1/3 sm:w-1/2"
           }
         >
           <div className="flex justify-end mb-4">

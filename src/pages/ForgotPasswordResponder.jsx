@@ -42,7 +42,7 @@ function ForgotPasswordResponder(props) {
         <button
           disabled={loading}
           type="submit"
-          className="w-24 p-2 mt-8 text-white bg-green-900 border rounded focus:shadow-outline"
+          className="w-24 p-2 mt-8 text-white bg-green-900 border rounded focus:ring"
           style={{ justifySelf: "center" }}
         >
           Reset Password

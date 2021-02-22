@@ -88,7 +88,7 @@ export default function Settings() {
               <label htmlFor="">
                 What would you like to call this place?
                 <input
-                  className="block w-full px-2 py-1 mt-1 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                  className="block w-full px-2 py-1 mt-1 border-b-2 outline-none focus:border-green-900 focus:ring"
                   type="text"
                 />
               </label>
@@ -165,7 +165,7 @@ export default function Settings() {
                     defaultValue="yeka"
                     name="subCity"
                     id="subCity"
-                    className="block w-full px-2 py-1 mt-1 mb-4 bg-white border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                    className="block w-full px-2 py-1 mt-1 mb-4 bg-white border-b-2 outline-none focus:border-green-900 focus:ring"
                   >
                     <option value="yeka">Yeka</option>
                     <option value="bole">Bole</option>
@@ -179,7 +179,7 @@ export default function Settings() {
                     <option value="kolfe-keraneyo">Kolfe Keraneyo</option>
                   </select>
                   {/* <input
-                    className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                    className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:ring"
                     type="text"
                     id="sub_city"
                   /> */}
@@ -187,7 +187,7 @@ export default function Settings() {
                   <input
                     onChange={handleChange}
                     // defaultValue={location.woreda}
-                    className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                    className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:ring"
                     type="number"
                     name="woreda"
                     id="woreda"
@@ -197,7 +197,7 @@ export default function Settings() {
                   <input
                     onChange={handleChange}
                     // defaultValue={location.moreInfo}
-                    className="block w-full px-2 py-1 mt-1 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                    className="block w-full px-2 py-1 mt-1 border-b-2 outline-none focus:border-green-900 focus:ring"
                     type="text"
                     name="moreInfo"
                     id="more_info"
