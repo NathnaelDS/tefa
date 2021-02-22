@@ -1,41 +1,41 @@
 import React from "react";
 import MenuItem from "../components/menuItem";
 import Header1 from "../components/Header1";
-import AmbulanceIcon from "../assets/icons/ambulanceStroke.svg";
-import FireIcon from "../assets/icons/fireStroke.svg";
-import PoliceIcon from "../assets/icons/policeStroke.svg";
-import PowerIcon from "../assets/icons/powerStroke.svg";
-import WaterIcon from "../assets/icons/waterStroke.svg";
+import AmbulanceIcon from "../components/icons/ambulanceStroke";
+import FireIcon from "../components/icons/fireStroke";
+import PoliceIcon from "../components/icons/policeStroke";
+import PowerIcon from "../components/icons/powerStroke";
+import WaterIcon from "../components/icons/waterStroke";
 
 const items = [
   {
     name: "Power",
     link: "/power",
-    icon: PowerIcon,
+    Icon: PowerIcon,
     description: "Power and Electricity related propblems",
   },
   {
     name: "Ambulance",
     link: "/ambulance",
-    icon: AmbulanceIcon,
+    Icon: AmbulanceIcon,
     description: "Power and Electricity related propblems",
   },
   {
     name: "Water",
     link: "/water",
-    icon: WaterIcon,
+    Icon: WaterIcon,
     description: "Power and Electricity related propblems",
   },
   {
     name: "Police",
     link: "/police",
-    icon: PoliceIcon,
+    Icon: PoliceIcon,
     description: "Power and Electricity related propblems",
   },
   {
     name: "Fire",
     link: "/fire",
-    icon: FireIcon,
+    Icon: FireIcon,
     description: "Power and Electricity related propblems",
   },
 ];
@@ -53,7 +53,7 @@ function Home() {
             key={item.name}
             name={item.name}
             link={item.link}
-            icon={item.icon}
+            Icon={item.Icon}
             description={item.description}
           />
         ))}

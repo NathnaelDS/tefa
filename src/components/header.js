@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import BackArrow from "./icons/backArrow";
 import Info from "./icons/info";
 
-function Header({ name, icon, color }) {
+function Header({ name, Icon, color }) {
   const history = useHistory();
   return (
     <div
@@ -17,7 +17,7 @@ function Header({ name, icon, color }) {
         <div className="hidden pl-2 text-sm font-bold sm:block">Back</div>
       </div>
       <div className="flex items-center justify-center">
-        <img src={icon} alt="" className="" />
+        <Icon />
         <div className="absolute mt-1 text-lg font-bold">{name}</div>
       </div>
       <div className="p-1 bg-white rounded-full shadow-lg cursor-pointer">

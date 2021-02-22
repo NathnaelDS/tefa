@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header";
 import BasicInfo from "../../components/basicInfo";
-import PowerIcon from "../../assets/icons/powerOutline.svg";
+import PowerIcon from "../../components/icons/powerOutline";
 import SeverityIcon from "../../components/icons/severityIcon";
 import TypeIcon from "../../components/icons/typeIcon";
 import SendIcon from "../../components/icons/sendIcon";
@@ -103,7 +103,7 @@ function Power() {
 
   return (
     <div>
-      <Header name={"Power"} icon={PowerIcon} color="bg-purple-100" />
+      <Header name={"Power"} Icon={PowerIcon} color="bg-purple-100" />
       <hr />
 
       <form onSubmit={submitForm}>
@@ -183,7 +183,7 @@ function Power() {
                   defaultValue="yeka"
                   name="subCity"
                   id="subCity"
-                  className="block w-full px-2 py-1 mt-1 mb-4 bg-white border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                  className="block w-full px-2 py-1 mt-1 mb-4 bg-white border-b-2 outline-none focus:border-green-900 focus:ring"
                 >
                   <option value="yeka">Yeka</option>
                   <option value="bole">Bole</option>
@@ -197,7 +197,7 @@ function Power() {
                   <option value="kolfe-keraneyo">Kolfe Keraneyo</option>
                 </select>
                 {/* <input
-                    className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                    className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:ring"
                     type="text"
                     id="sub_city"
                   /> */}
@@ -205,7 +205,7 @@ function Power() {
                 <input
                   onChange={handleChange}
                   // defaultValue={location.woreda}
-                  className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                  className="block w-full px-2 py-1 mt-1 mb-4 border-b-2 outline-none focus:border-green-900 focus:ring"
                   type="number"
                   name="woreda"
                   id="woreda"
@@ -215,7 +215,7 @@ function Power() {
                 <input
                   onChange={handleChange}
                   // defaultValue={location.moreInfo}
-                  className="block w-full px-2 py-1 mt-1 border-b-2 outline-none focus:border-green-900 focus:shadow-outline"
+                  className="block w-full px-2 py-1 mt-1 border-b-2 outline-none focus:border-green-900 focus:ring"
                   type="text"
                   name="moreInfo"
                   id="more_info"

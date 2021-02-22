@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import FireIcon from "../../assets/icons/fireOutline.svg";
+import FireIcon from "../../components/icons/fireOutline";
 import BasicInfo from "../../components/basicInfo";
 
 const data = {
@@ -16,7 +16,7 @@ const data = {
 function Fire() {
   return (
     <div>
-      <Header name="Fire" icon={FireIcon} color="bg-orange-100" />
+      <Header name="Fire" Icon={FireIcon} color="bg-orange-100" />
       <hr />
       <BasicInfo data={data} className="p-10 bg-orange-300" />
     </div>

@@ -1,36 +1,36 @@
 import React from "react";
 import Header1 from "../components/Header1";
-import AmbulanceIcon from "../assets/icons/ambulance.svg";
-import FireIcon from "../assets/icons/fire.svg";
-import PoliceIcon from "../assets/icons/police.svg";
-import PowerIcon from "../assets/icons/power.svg";
-import WaterIcon from "../assets/icons/water.svg";
+import AmbulanceIcon from "../components/icons/ambulanceIcon";
+import FireIcon from "../components/icons/fireIcon";
+import PoliceIcon from "../components/icons/policeIcon";
+import PowerIcon from "../components/icons/powerIcon";
+import WaterIcon from "../components/icons/waterIcon";
 import ReportCard from "../components/ReportCard";
 
 const items = {
   power: {
     name: "power",
-    icon: PowerIcon,
+    Icon: PowerIcon,
     title: "Power Issue",
   },
   ambulance: {
     name: "ambulance",
-    icon: AmbulanceIcon,
+    Icon: AmbulanceIcon,
     title: "Ambulance Issue",
   },
   water: {
     name: "water",
-    icon: WaterIcon,
+    Icon: WaterIcon,
     title: "Water Issue",
   },
   police: {
     name: "police",
-    icon: PoliceIcon,
+    Icon: PoliceIcon,
     title: "Police Issue",
   },
   fire: {
     name: "fire",
-    icon: FireIcon,
+    Icon: FireIcon,
     title: "Fire Issue",
   },
 };

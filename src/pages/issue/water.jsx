@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import WaterIcon from "../../assets/icons/waterOutline.svg";
+import WaterIcon from "../../components/icons/waterOutline";
 import BasicInfo from "../../components/basicInfo";
 
 const data = {

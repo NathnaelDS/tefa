@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MenuItem({ link, icon, name, description }) {
+function MenuItem({ link, Icon, name, description }) {
   return (
     <Link
       className="flex justify-between w-full mx-1 my-6 duration-150 ease-out border border-teal-400 rounded shadow-sm cursor-pointer hover:shadow-lg"
@@ -13,7 +13,7 @@ function MenuItem({ link, icon, name, description }) {
         </div>
         <div className="text-sm text-gray-800 sm:text-base">{description}</div>
       </div>
-      <img src={icon} alt="" className="pr-6" />
+      <Icon className="pr-6" />
     </Link>
   );
 }
