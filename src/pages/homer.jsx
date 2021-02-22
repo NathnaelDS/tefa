@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import mapboxgl from "mapbox-gl";
-
+import React, { useState, useEffect } from "react";
 import AmbulanceIcon from "../components/icons/ambulanceIcon";
 import FireIcon from "../components/icons/fireIcon";
 import PoliceIcon from "../components/icons/policeIcon";
 import PowerIcon from "../components/icons/powerIcon";
 import WaterIcon from "../components/icons/waterIcon";
-import Header1 from "../components/Header1";
+import MenuIcon from "../components/icons/menuIcon";
+import ExitIcon from "../components/icons/ExitIcon";
+import ReportCardResponder from "../components/reportCardResponder";
+import useClickOutside from "../hooks/useClickOutside";
 
 const items = [
   { name: "Power", link: "/power", icon: PowerIcon },
@@ -16,107 +17,157 @@ const items = [
   { name: "Fire", link: "/fire", icon: FireIcon },
 ];
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibmF0aWRlamVuZSIsImEiOiJja2xkOGowczkxY2dqMm9zOHhhbmhpM2drIn0.ufYeKFwwHrNfrB3ocDcv_Q";
-
-var geojson = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: [-77.032, 38.913],
-      },
-      properties: {
-        title: "Mapbox",
-        description: "Washington, D.C.",
-      },
-    },
-    {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: [-122.414, 37.776],
-      },
-      properties: {
-        title: "Mapbox",
-        description: "San Francisco, California",
-      },
-    },
-    {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: [38.75, 8.98],
-      },
-      properties: {
-        title: "Addis Baby",
-        description: "Addis Ababa, Ethiopia",
-      },
-    },
-  ],
-};
-
 function HomeResponder() {
-  const [mapState, setMapState] = useState({
-    lng: 38.75,
-    lat: 8.98,
-    zoom: 10.75,
-  });
-  let mapContainer = useRef();
+  const [reportModalOpen, setReportModalOpen] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
+  const { ref, outside } = useClickOutside();
+  const { ref: modalRef, outside: modalOutside } = useClickOutside();
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [mapState.lng, mapState.lat],
-      zoom: mapState.zoom,
-    });
+    if (outside) {
+      setOpenMenu(false);
+    }
+  }, [outside]);
 
-    map.on("move", () => {
-      setMapState({
-        lng: map.getCenter().lng.toFixed(4),
-        lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2),
-      });
-    });
-
-    // todo: maybe add to a different useEffect when I have to fetch geoJson from the backend
-    geojson.features.forEach(function (marker) {
-      // create a HTML element for each feature
-      var el = document.createElement("div");
-      el.className = "marker";
-
-      // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el)
-        .setLngLat(marker.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              "<h3 class='font-bold'>" +
-                marker.properties.title +
-                "</h3><p>" +
-                marker.properties.description +
-                "</p>"
-            )
-        )
-        .addTo(map);
-    });
-  }, []);
+  useEffect(() => {
+    if (modalOutside) {
+      setReportModalOpen(false);
+    }
+  }, [modalOutside]);
 
   return (
-    <div>
-      <Header1 title="Responder Dashboard" />
+    <>
+      <div className="relative mr-4 border">
+        <div className="flex justify-end">
+          {openMenu ? (
+            <button
+              className="rounded cursor-pointer focus:outline-none focus:shadow-outline hover:shadow-sm"
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <ExitIcon className="box-content p-6 hover:text-teal-600 " />
+            </button>
+          ) : (
+            <button
+              className="rounded cursor-pointer focus:outline-none focus:shadow-outline hover:shadow-sm"
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <MenuIcon className="box-content p-6 hover:text-teal-600 " />
+            </button>
+          )}
+        </div>
+        {openMenu && (
+          <div
+            ref={ref}
+            className="absolute right-0 p-4 mt-2 space-y-1 bg-gray-100 rounded shadow-md"
+          >
+            <button className="block w-full px-2 py-1 text-left rounded cursor-pointer hover:bg-gray-300">
+              Change to Amharic
+            </button>
+            <button className="block w-full px-2 py-1 text-left rounded cursor-pointer hover:bg-gray-300">
+              Log Out
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="mt-16 mb-12 text-xl font-medium text-center">
+        What are you reporting?
+      </div>
       <div
-        style={{ height: "calc(100vh - 70px)" }}
-        className=""
-        // className="flex-grow"
-        ref={(el) => (mapContainer = el)}
-      />
-      {/* <div className="relative flex-1">
-      </div> */}
-    </div>
+        className="grid justify-center px-6"
+        style={{
+          gridTemplateColumns: "repeat(auto-fill, 360px)",
+          gridGap: "3rem",
+        }}
+      >
+        {items.map((item) => (
+          <ReportCardResponder
+            key={item.name}
+            report={item}
+            openReport={() => setReportModalOpen(true)}
+          />
+        ))}
+      </div>
+      {reportModalOpen && (
+        <div
+          className="fixed inset-0 flex items-center"
+          style={{
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0, 0.5)",
+          }}
+        >
+          <div
+            ref={modalRef}
+            className="flex m-auto overflow-hidden rounded shadow-xl"
+            style={{
+              maxWidth: "max-content",
+            }}
+          >
+            {/* 1st Column */}
+            <div
+              className="grid items-center justify-center bg-teal-600"
+              style={{
+                width: 380,
+                height: 540,
+              }}
+            >
+              <div className="space-y-3">
+                <div className="text-xl font-bold">27 Reports</div>
+                <div className="flex items-center">
+                  <div className="text-xl font-bold">Power Outage</div>
+                  <div
+                    className="w-2 h-2 mx-2 bg-gray-900"
+                    style={{ borderRadius: "100%" }}
+                  ></div>
+                  <div className="text-xl font-bold">4 Days</div>
+                </div>
+                <div className="">
+                  <div className="font-bold">Yeka, Woreda 11</div>
+                  <div className="font-bold">9.00003343, 38.92315145</div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2nd Column */}
+            <div
+              className="bg-teal-200"
+              style={{
+                width: 380,
+                height: 540,
+              }}
+            >
+              <div className="flex justify-end" style={{ height: "13%" }}>
+                <button
+                  className="rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => setOpenMenu(!openMenu)}
+                >
+                  <ExitIcon className="box-content p-6 text-gray-700 hover:text-black" />
+                </button>
+              </div>
+              <div
+                className="px-20 pt-4 pb-12 overflow-y-auto"
+                style={{ height: "87%" }}
+              >
+                {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => (
+                  <div className="flex items-center pb-8">
+                    <div className="">
+                      <div
+                        className="text-xs"
+                        // onClick={() => openReport()}
+                      >
+                        Kolfe Keranio doro bet
+                      </div>
+                      <div className="text-xs uppercase">Arnold Johnson</div>
+                      <div className="text-xs">+251 911 23 45 67</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
