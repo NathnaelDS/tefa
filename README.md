@@ -6,6 +6,8 @@ Get quick centralized access to emergency phone numbers.
 
 I built this webapp with my buddy [Samuel](https://github.com/samwolde). He handled the backend for this project.
 
+I came up with [designs for the frontend](https://www.figma.com/file/3V9adBcCazG1bzismnjrCS/Tefa?node-id=17%3A0) on Figma.
+
 ---
 
 We used this project to learn a few things. On my side, my plan was to learn the following:
